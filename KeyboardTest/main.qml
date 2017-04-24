@@ -13,13 +13,13 @@ Window {
         id: inputField
         anchors.horizontalCenter: parent.horizontalCenter
         height: 60
-        text: "123"
+        text: "1234"
         font.pointSize: 30
         onAccepted: focus= true
+        anchors.top: parent.top
+        anchors.topMargin: 30
         Keys.onEscapePressed: undo()
     }
-
-
 
     Row {
         id: keyRow1
@@ -81,7 +81,7 @@ Window {
         Button {
             id: buttonBackspace
             text: qsTr("<-")
-            onClicked: keyEmitter.emitKey(Qt.Key_Backspace)
+            onClicked: keyEmitter.keyboardSpecialKeyClicked(Qt.Key_Backspace)
         }
     }
 
@@ -194,6 +194,13 @@ Window {
             text: qsTr("L")
             onClicked: keyEmitter.emitKey(Qt.Key_L)
         }
+
+        Button {
+            id: buttonEnter
+            text: qsTr("Enter")
+            onClicked: keyEmitter.keyboardSpecialKeyClicked(Qt.Key_Enter)
+        }
+
     }
 
     Row {
@@ -230,7 +237,7 @@ Window {
         Button {
             id: buttonN
             text: qsTr("N")
-            onClicked: keyEmitter.emitKey(Qt.Key_M)
+            onClicked: keyEmitter.emitKey(Qt.Key_N)
         }
         Button {
             id: buttonM
@@ -248,12 +255,10 @@ Window {
         Button {
             id: buttonCtrl
             text: qsTr("Ctrl")
-            onClicked: keyEmitter.emitKey(Qt.Key_Control)
         }
         Button {
             id: buttonShift
             text: qsTr("Shift")
-            onClicked: keyEmitter.emitKey(Qt.Key_Shift)
         }
 
         Button {
@@ -265,7 +270,6 @@ Window {
         Button {
             id: buttonAlt
             text: qsTr("Alt")
-            onClicked: keyEmitter.emitKey(Qt.Key_Alt)
         }
     }
 

@@ -4,7 +4,9 @@ QT += qml quick
 CONFIG += c++11
 
 SOURCES += main.cpp \
-    keyemitter.cpp
+    keyemitter.cpp \
+    vietnameseimealgorithm.cpp \
+    telextalgorithm.cpp
 
 RESOURCES += qml.qrc
 
@@ -31,4 +33,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    keyemitter.h
+    keyemitter.h \
+    vietnameseimealgorithm.h \
+    telextalgorithm.h
